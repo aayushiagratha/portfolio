@@ -116,3 +116,18 @@ fadeEls.forEach(el => {
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   fadeObserver.observe(el);
 });
+
+
+/* ----------------------------------------------------------
+6. EDUCATION TOGGLE
+---------------------------------------------------------- */
+const eduToggle = document.getElementById('eduToggle');
+const eduList = document.getElementById('eduList');
+
+if (eduToggle && eduList) {
+  eduToggle.addEventListener('click', () => {
+    const isOpen = eduList.classList.contains('open');
+    eduList.classList.toggle('open');
+    eduToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+}
