@@ -41,16 +41,16 @@ workRows.forEach(row => {
 });
 
 /* ----------------------------------------------------------
-   2. CERTIFICATIONS TOGGLE
+   2. COMBINED EDUCATION · SKILLS · CERTIFICATIONS TOGGLE
    ---------------------------------------------------------- */
-const certsToggle = document.getElementById('certsToggle');
-const certsList   = document.getElementById('certsList');
+const combinedToggle = document.getElementById('combinedToggle');
+const combinedList   = document.getElementById('combinedList');
 
-if (certsToggle && certsList) {
-  certsToggle.addEventListener('click', () => {
-    const isOpen = certsList.classList.contains('open');
-    certsList.classList.toggle('open');
-    certsToggle.setAttribute('aria-expanded', String(!isOpen));
+if (combinedToggle && combinedList) {
+  combinedToggle.addEventListener('click', () => {
+    const isOpen = combinedList.classList.contains('open');
+    combinedList.classList.toggle('open');
+    combinedToggle.setAttribute('aria-expanded', String(!isOpen));
   });
 }
 
@@ -119,19 +119,8 @@ fadeEls.forEach(el => {
 
 
 /* ----------------------------------------------------------
-6. EDUCATION TOGGLE
----------------------------------------------------------- */
-const eduToggle = document.getElementById('eduToggle');
-const eduList = document.getElementById('eduList');
-
-if (eduToggle && eduList) {
-  eduToggle.addEventListener('click', () => {
-    const isOpen = eduList.classList.contains('open');
-    eduList.classList.toggle('open');
-    eduToggle.setAttribute('aria-expanded', String(!isOpen));
-  });
-}
-
+   6. EDUCATION · SKILLS · CERTIFICATIONS TOGGLE — merged into section 2
+   ---------------------------------------------------------- */
 
 // Position Pilot expand toggle
 const ppToggle = document.getElementById('ppToggle');
