@@ -1100,3 +1100,10 @@ REDUCED MOTION
      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
      html { scroll-behavior: auto; }
 }
+
+/* Architecture Diagram */
+.architecture-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
