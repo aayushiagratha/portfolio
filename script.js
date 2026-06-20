@@ -131,3 +131,23 @@ if (eduToggle && eduList) {
     eduToggle.setAttribute('aria-expanded', String(!isOpen));
   });
 }
+
+
+// Position Pilot expand toggle
+const ppToggle = document.getElementById('ppToggle');
+const ppDetail = document.getElementById('ppDetail');
+
+if (ppToggle && ppDetail) {
+  ppToggle.addEventListener('click', () => {
+    const isOpen = ppDetail.classList.contains('open');
+    ppDetail.classList.toggle('open');
+    ppToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  ppToggle.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      ppToggle.click();
+    }
+  });
+}
