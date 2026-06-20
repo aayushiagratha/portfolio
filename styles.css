@@ -429,11 +429,17 @@ overflow:hidden on detail itself clips the child as grid row shrinks.
 
 .work-detail-inner {
   min-height: 0;
-  padding-bottom: var(--space-2xl);
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
   padding-left: 200px;
+}
+
+.work-detail-inner::after {
+  content: '';
+  display: block;
+  height: var(--space-2xl);
+  flex-shrink: 0;
 }
 
 .detail-block {
