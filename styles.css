@@ -1102,6 +1102,11 @@ REDUCED MOTION
 }
 
 /* Architecture Diagram */
+.architecture-diagram {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
 .architecture-diagram svg {
   width: 100%;
   height: auto;
