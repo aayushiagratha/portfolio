@@ -432,7 +432,7 @@ overflow:hidden on detail itself clips the child as grid row shrinks.
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
-  padding-left: 200px;
+  padding-left: 220px;
 }
 
 .work-detail-inner::after {
@@ -625,6 +625,62 @@ WRITING LINKS (inside Palik)
      border-color: var(--ink);
      background: var(--stone-50);
 }
+
+/* ----------------------------------------------------------
+WRITING LIST (redesigned compact writing section)
+---------------------------------------------------------- */
+.writing-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--stone-100);
+}
+
+.writing-list-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-l);
+  padding: var(--space-m) 0;
+  border-bottom: 1px solid var(--stone-100);
+}
+
+.writing-list-item--plain {
+  /* no link column — spans full width */
+}
+
+.writing-list-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.writing-list-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.writing-list-note {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.55;
+  font-weight: 300;
+}
+
+.writing-list-link {
+  font-size: 13px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.15s var(--ease);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.writing-list-link:hover { color: var(--ink); }
 
 /* ----------------------------------------------------------
 VISUAL GALLERY (Palik social & visual work placeholder)
@@ -841,12 +897,12 @@ ABOUT
 }
 
 .about-details {
-     display: flex;
-     flex-direction: column;
-     gap: var(--space-m);
-     padding: var(--space-l) 0 var(--space-m) 0;
-     border-top: 1px solid var(--stone-100);
-     margin-top: var(--space-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: var(--space-l) 0 0 0;
+  border-top: 1px solid var(--stone-100);
+  margin-top: var(--space-l);
 }
 
 .about-detail-row {
@@ -1006,7 +1062,7 @@ RESPONSIVE
   }
 
   .work-meta { display: none; }
-     .work-detail-inner { padding-left: 0; }
+     .work-detail-inner { padding-left: 0; max-width: 100%; overflow-x: hidden; }
      .detail-cols { grid-template-columns: 1fr; }
      .metrics-grid { grid-template-columns: 1fr 1fr; }
      .continuum { grid-template-columns: 1fr; }
@@ -1033,6 +1089,15 @@ RESPONSIVE
 /* ----------------------------------------------------------
 REDUCED MOTION
 ---------------------------------------------------------- */
+
+  .writing-list-item {
+    flex-direction: column;
+    gap: var(--space-s);
+    align-items: flex-start;
+  }
+
+  .writing-list-link { align-self: flex-start; }
+
 @media (prefers-reduced-motion: reduce) {
      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
      html { scroll-behavior: auto; }
