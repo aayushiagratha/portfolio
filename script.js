@@ -140,3 +140,84 @@ if (ppToggle && ppDetail) {
     }
   });
 }
+
+
+/* ----------------------------------------------------------
+   PALIK CAROUSEL + LIGHTBOX
+   ---------------------------------------------------------- */
+const carouselSlides = document.querySelectorAll('.carousel-slide');
+const dotsContainer  = document.getElementById('carouselDots');
+let currentSlide = 0;
+
+const images = [
+  'palik-li-1.png',
+  'palik-li-2.png',
+  'palik-li-3.png',
+  'palik-li-4.png'
+];
+
+function initCarousel() {
+  if (!carouselSlides.length || !dotsContainer) return;
+
+  carouselSlides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(dot);
+  });
+
+  goToSlide(0);
+}
+
+function goToSlide(index) {
+  carouselSlides.forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.carousel-dot').forEach(d => d.classList.remove('active'));
+
+  currentSlide = (index + carouselSlides.length) % carouselSlides.length;
+  carouselSlides[currentSlide].classList.add('active');
+  document.querySelectorAll('.carousel-dot')[currentSlide]?.classList.add('active');
+}
+
+function slideCarousel(dir) {
+  goToSlide(currentSlide + dir);
+}
+
+// Lightbox
+let lightboxIndex = 0;
+
+function openLightbox(index) {
+  lightboxIndex = index;
+  const lb = document.getElementById('lightbox');
+  const img = document.getElementById('lightboxImg');
+  if (!lb || !img) return;
+  img.src = images[lightboxIndex];
+  img.alt = carouselSlides[lightboxIndex]?.querySelector('img')?.alt || '';
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const lb = document.getElementById('lightbox');
+  if (!lb) return;
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function lightboxNav(dir) {
+  lightboxIndex = (lightboxIndex + dir + images.length) % images.length;
+  const img = document.getElementById('lightboxImg');
+  if (img) {
+    img.src = images[lightboxIndex];
+    img.alt = carouselSlides[lightboxIndex]?.querySelector('img')?.alt || '';
+  }
+}
+
+document.addEventListener('keydown', e => {
+  const lb = document.getElementById('lightbox');
+  if (!lb?.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxNav(-1);
+  if (e.key === 'ArrowRight') lightboxNav(1);
+});
+
+initCarousel();
