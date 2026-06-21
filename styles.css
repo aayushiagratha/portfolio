@@ -1216,20 +1216,20 @@ REDUCED MOTION
 }
 
 .carousel-track {
-  display: flex;
-  gap: var(--space-m);
-  overflow: hidden;
+  display: block;
   position: relative;
+  width: 100%;
 }
 
 .carousel-slide {
-  flex: 0 0 280px;
+  display: none;
+  width: 100%;
+  max-width: 480px;
   border-radius: var(--radius-m);
   overflow: hidden;
   cursor: pointer;
   border: 1px solid var(--stone-100);
   transition: opacity 0.2s ease, transform 0.2s ease;
-  display: none;
 }
 
 .carousel-slide.active {
