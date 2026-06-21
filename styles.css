@@ -1,6 +1,6 @@
 /* ============================================================
-AAYUSHI AGRATHA — PORTFOLIO
-White ground · Instrument Serif + Inter · Conscious space
+AAYUSHI AGRATHA â PORTFOLIO
+White ground Â· Instrument Serif + Inter Â· Conscious space
 ============================================================ */
 
 /* ----------------------------------------------------------
@@ -175,10 +175,13 @@ MOBILE NAV
 HERO
 ---------------------------------------------------------- */
 .hero {
-     padding-top: 128px;
-     padding-bottom: var(--space-4xl);
-     padding-left: var(--space-xl);
-     padding-right: var(--space-xl);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: var(--space-2xl);
+  padding-left: var(--space-xl);
+  padding-right: var(--space-xl);
 }
 
 .hero-inner {
@@ -315,12 +318,6 @@ SECTIONS
      color: var(--ink);
 }
 
-.section-divider {
-     max-width: var(--max-w);
-     margin: 0 auto;
-     height: 1px;
-     background: var(--stone-100);
-}
 
 /* ----------------------------------------------------------
 WORK LIST
@@ -411,7 +408,7 @@ WORK LIST
 
 /* ----------------------------------------------------------
 WORK DETAIL (expandable accordion)
-FIX: improved transition — smoother, unhurried fold/unfold.
+FIX: improved transition â smoother, unhurried fold/unfold.
 The detail-inner uses padding-top (not just padding-bottom) so
 content slides in from the top edge cleanly.
 overflow:hidden on detail itself clips the child as grid row shrinks.
@@ -645,7 +642,7 @@ WRITING LIST (redesigned compact writing section)
 }
 
 .writing-list-item--plain {
-  /* no link column — spans full width */
+  /* no link column â spans full width */
 }
 
 .writing-list-main {
@@ -1113,7 +1110,7 @@ REDUCED MOTION
   display: block;
 }
 
-/* ── Position Pilot Featured Section ─────────────────────────── */
+/* ââ Position Pilot Featured Section âââââââââââââââââââââââââââ */
 .pp-featured {
   border-top: 1px solid var(--stone-100);
 }
@@ -1244,8 +1241,10 @@ REDUCED MOTION
 .carousel-slide img {
   width: 100%;
   height: auto;
+  max-height: 600px;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: top;
 }
 
 .carousel-controls {
