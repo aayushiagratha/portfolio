@@ -680,41 +680,6 @@ WRITING LIST (redesigned compact writing section)
 .writing-list-link:hover { color: var(--ink); }
 
 /* ----------------------------------------------------------
-CONTINUUM
----------------------------------------------------------- */
-.continuum {
-     display: grid;
-     grid-template-columns: repeat(3, 1fr);
-     gap: var(--space-m);
-}
-
-.continuum-item {
-     padding: var(--space-l);
-     border-radius: var(--radius-m);
-     display: flex;
-     flex-direction: column;
-     gap: var(--space-s);
-}
-
-.continuum-item--strategic { background: #eef4ee; }
-.continuum-item--hybrid { background: #f4f1ee; }
-.continuum-item--symbolic { background: #fdf3ed; }
-
-.continuum-label {
-     font-size: 10px;
-     font-weight: 600;
-     letter-spacing: 0.08em;
-     text-transform: uppercase;
-     color: var(--ink);
-}
-
-.continuum-item p {
-     font-size: 13px;
-     color: var(--ink-soft);
-     line-height: 1.55;
-}
-
-/* ----------------------------------------------------------
 WRITING SECTION
 ---------------------------------------------------------- */
 .writing-section {
@@ -1002,7 +967,6 @@ RESPONSIVE
      .work-detail-inner { padding-left: 0; max-width: 100%; overflow-x: hidden; }
      .detail-cols { grid-template-columns: 1fr; }
      .metrics-grid { grid-template-columns: 1fr 1fr; }
-     .continuum { grid-template-columns: 1fr; }
      .agent-layer { grid-template-columns: 1fr; }
      .about-detail-row { grid-template-columns: 1fr; gap: var(--space-xs); }
 
