@@ -7,17 +7,22 @@ White ground Â· Instrument Serif + Inter Â· Conscious space
 TOKENS
 ---------------------------------------------------------- */
 :root {
+     /* Editorial espresso/cream/red palette. Accent discipline: --accent
+        marks interaction, active state, status, or selection ONLY —
+        never a static heading/label (those use --ink-muted). */
      --white: #ffffff;
-     --off-white: #fafaf9;
-     --stone-50: #f7f6f4;
-     --stone-100: #eeecea;
-     --stone-200: #d8d5d0;
-     --stone-400: #a09890;
-     --ink: #1a1816;
-     --ink-soft: #3d3a37;
-     --ink-muted: #6b6460;
-     --accent: #c4601a;
-     --accent-subtle: #e8d5c4;
+     --off-white: #f3e5d2;
+     --stone-50: #f1f2e0;
+     --stone-100: #e6dfd9;
+     --stone-200: #c5b49a;
+     --stone-400: #79715a;
+     --ink: #282018;
+     --ink-soft: #5d544d;
+     --ink-muted: #79715a;
+     --accent: #850000;
+     --accent-subtle: #c5b49a;
+     --accent-tint: rgba(133,0,0,0.16);
+     --brown-deep: #54422b;
 
   --font-serif: 'Instrument Serif', Georgia, serif;
      --font-sans: 'Inter', -apple-system, sans-serif;
@@ -299,13 +304,17 @@ SECTIONS
      margin-bottom: var(--space-2xl);
 }
 
+.section-alt {
+     background: var(--off-white); /* cream — used for Notes only, see section-identity scheme */
+}
+
 .section-label {
      display: block;
      font-size: 11px;
      font-weight: 500;
      letter-spacing: 0.12em;
      text-transform: uppercase;
-     color: var(--accent);
+     color: var(--ink-muted); /* static label — accent stays scarce, see token comment */
      margin-bottom: var(--space-s);
 }
 
@@ -508,6 +517,28 @@ overflow:hidden on detail itself clips the child as grid row shrinks.
 }
 
 .detail-note a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
+
+.detail-link {
+     font-size: 13px;
+     font-weight: 500;
+     color: var(--ink);
+     text-decoration: underline;
+     text-underline-offset: 3px;
+     transition: color 0.15s var(--ease);
+}
+
+.detail-link:hover { color: var(--accent); }
+
+.work-item--static { cursor: default; }
+.work-row--static { cursor: default; grid-template-columns: 140px 1fr 0; padding-bottom: var(--space-m); }
+.work-row--static:hover { opacity: 1; }
+.work-detail-inner--static { display: flex; flex-direction: column; gap: var(--space-m); padding-left: 140px; padding-bottom: var(--space-l); }
+.work-detail-inner--static p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; max-width: var(--col-w); }
+
+@media (max-width: 900px) {
+  .work-row--static { grid-template-columns: 1fr; }
+  .work-detail-inner--static { padding-left: 0; }
+}
 
 .detail-note-inline {
      font-size: 13px;
@@ -1102,6 +1133,137 @@ REDUCED MOTION
   content: '';
   display: block;
   height: var(--space-2xl);
+}
+
+/* ----------------------------------------------------------
+HERO — text-only variant (no photo)
+---------------------------------------------------------- */
+.hero-inner--text-only {
+  display: block;
+  max-width: var(--col-w);
+}
+
+.hero-modes {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-bottom: var(--space-l);
+  flex-wrap: wrap;
+}
+
+.hero-modes strong { font-weight: 500; color: var(--ink); }
+.hero-modes .dot { color: var(--stone-400); }
+
+/* ----------------------------------------------------------
+CURRENTLY — quiet interstitial between hero and systems
+---------------------------------------------------------- */
+.currently {
+  padding: var(--space-xl) var(--space-xl);
+  border-bottom: 1px solid var(--stone-100);
+}
+
+.currently-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-l);
+  flex-wrap: wrap;
+}
+
+.currently-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  flex-shrink: 0;
+}
+
+.currently-text {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ink-soft);
+}
+
+/* ----------------------------------------------------------
+STATUS BADGE — Live / Archived / Validating / Open Source.
+The one place a static UI element is allowed to use --accent:
+it marks status, not decoration, and only "Live" gets full red.
+---------------------------------------------------------- */
+.status-badge {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-muted);
+}
+
+.status-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--stone-400);
+}
+
+.status-badge--live { color: var(--accent); }
+.status-badge--live .dot { background: var(--accent); }
+
+/* ----------------------------------------------------------
+SYSTEMS INTRO
+---------------------------------------------------------- */
+.systems-intro {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  max-width: var(--col-w);
+  margin-top: var(--space-m);
+}
+
+/* ----------------------------------------------------------
+NOTES PREVIEW
+---------------------------------------------------------- */
+.notes-preview-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-l);
+  padding: var(--space-l) 0;
+  border-top: 1px solid var(--stone-100);
+}
+
+.notes-preview-list .note-row:last-child { border-bottom: 1px solid var(--stone-100); }
+
+.note-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.note-tag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .currently { padding: var(--space-l); }
 }
 
 

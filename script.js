@@ -141,4 +141,49 @@ if (ppToggle && ppDetail) {
   });
 }
 
+/* ----------------------------------------------------------
+   7. LIGHTWEIGHT SYSTEMS — rendered from data/projects.js
+   ---------------------------------------------------------- */
+const lightweightMount = document.getElementById('lightweightSystems');
+
+if (lightweightMount && typeof PROJECTS !== 'undefined') {
+  const lightweight = PROJECTS.filter(p => p.tier === 'lightweight');
+
+  lightweightMount.innerHTML = lightweight.map(p => `
+    <div class="work-item work-item--static">
+      <div class="work-row work-row--static">
+        <div class="work-meta">
+          <span class="status-badge"><span class="dot"></span>${p.status}</span>
+        </div>
+        <div class="work-title-group">
+          <h3 class="work-title">${p.name}</h3>
+          <p class="work-subtitle">${p.tagline}</p>
+        </div>
+      </div>
+      <div class="work-detail-inner work-detail-inner--static">
+        <div class="detail-block">
+          <p>${p.description}</p>
+        </div>
+        <div class="detail-note">
+          <a href="${p.url}" target="_blank" class="detail-link">View on GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ----------------------------------------------------------
+   8. NOTES PREVIEW — rendered from data/notes.js
+   ---------------------------------------------------------- */
+const notesMount = document.getElementById('notesPreview');
+
+if (notesMount && typeof NOTES !== 'undefined') {
+  notesMount.innerHTML = NOTES.map(n => `
+    <div class="note-row">
+      <span class="note-title">${n.title}</span>
+      <span class="note-tag">${n.tag}</span>
+    </div>
+  `).join('');
+}
+
 
