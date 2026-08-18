@@ -122,8 +122,6 @@ NAV
 }
 
 .nav-inner {
-     max-width: var(--max-w);
-     margin: 0 auto;
      padding: 0 var(--space-xl);
      height: 64px;
      display: grid;
