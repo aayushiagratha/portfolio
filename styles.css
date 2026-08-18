@@ -283,7 +283,7 @@ HERO
   display: flex;
   align-items: center;
   padding-top: calc(64px + var(--space-2xl));
-  padding-bottom: var(--space-2xl);
+  padding-bottom: 0;
   padding-left: var(--space-xl);
   padding-right: var(--space-xl);
   background: var(--ink);
@@ -1073,7 +1073,7 @@ RESPONSIVE
 
   .hero {
          padding-top: 96px;
-         padding-bottom: var(--space-3xl);
+         padding-bottom: 0;
          padding-left: var(--space-l);
          padding-right: var(--space-l);
   }
@@ -1320,7 +1320,6 @@ SYSTEMS INTRO
   font-size: 19px;
   line-height: 1.6;
   color: var(--ink-soft);
-  max-width: var(--col-w);
   margin-top: var(--space-m);
 }
 
