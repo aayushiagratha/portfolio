@@ -12,6 +12,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
   <header class="nav">
     <div class="nav-inner">
       <a href="../../index.html#notes" class="nav-name">Aayushi Agratha</a>
@@ -24,10 +26,23 @@
         <a href="https://ask-my-cv-woad.vercel.app" target="_blank" rel="noopener" class="nav-link nav-link--utility">Ask my CV ↗</a>
         <a href="../../index.html#contact" class="nav-link nav-link--cta">Get in touch →</a>
       </nav>
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
 
-  <div class="notes-app">
+  <div class="mobile-nav" id="mobileNav">
+    <a href="../../index.html#systems" class="mobile-nav-link">Systems</a>
+    <a href="../../index.html#research" class="mobile-nav-link">Research</a>
+    <a href="../../notes/" class="mobile-nav-link">Notes</a>
+    <a href="../../index.html#experience" class="mobile-nav-link">Experience</a>
+    <a href="../../index.html#about" class="mobile-nav-link">About</a>
+    <a href="https://ask-my-cv-woad.vercel.app" target="_blank" rel="noopener" class="mobile-nav-link">Ask my CV ↗</a>
+    <a href="../../index.html#contact" class="mobile-nav-link">Get in touch</a>
+  </div>
+
+  <main id="main-content" class="notes-app">
     <div class="notes-sidebar">
       <div class="notes-sidebar-label">Folders</div>
       <div class="notes-sidebar-folder">All Notes <span class="notes-sidebar-count">3</span></div>
@@ -74,7 +89,8 @@
         <div class="notes-prevnext"><a href="../../notes/the-word-in-the-title-predicted-more-than-the-job-did/" class="prev">← The word in the title predicted more than the job did</a><a href="../../notes/github-stars-arent-a-quality-signal/" class="next">GitHub stars aren't a quality signal →</a></div>
       </div>
     </div>
-  </div>
+  </main>
 
+  <script src="../../script.js"></script>
 </body>
 </html>

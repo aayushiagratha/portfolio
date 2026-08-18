@@ -65,12 +65,15 @@ if (menuBtn && mobileNav) {
     const isOpen = mobileNav.classList.contains('open');
     mobileNav.classList.toggle('open');
     menuBtn.setAttribute('aria-label', isOpen ? 'Menu' : 'Close menu');
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
   });
 
   // Close on link click
   mobileNav.querySelectorAll('.mobile-nav-link').forEach(link => {
     link.addEventListener('click', () => {
       mobileNav.classList.remove('open');
+      menuBtn.setAttribute('aria-label', 'Menu');
+      menuBtn.setAttribute('aria-expanded', 'false');
     });
   });
 }
@@ -165,7 +168,7 @@ if (lightweightMount && typeof PROJECTS !== 'undefined') {
           <p>${p.description}</p>
         </div>
         <div class="detail-note">
-          <a href="systems/${p.id}/" class="detail-link">Explore →</a>
+          <a href="systems/${p.id}/" class="detail-link" aria-label="Explore ${p.name}">Explore →</a>
         </div>
       </div>
     </div>

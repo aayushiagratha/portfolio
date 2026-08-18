@@ -13,6 +13,8 @@
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
   <!-- NAV -->
   <header class="nav">
     <div class="nav-inner">
@@ -26,7 +28,7 @@
         <a href="https://ask-my-cv-woad.vercel.app" target="_blank" rel="noopener" class="nav-link nav-link--utility">Ask my CV ↗</a>
         <a href="#contact" class="nav-link nav-link--cta">Get in touch →</a>
       </nav>
-      <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+      <button class="nav-menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span><span></span>
       </button>
     </div>
@@ -43,7 +45,7 @@
     <a href="#contact" class="mobile-nav-link">Get in touch</a>
   </div>
 
-  <main>
+  <main id="main-content">
 
     <!-- HERO -->
     <section class="hero" id="hero">
