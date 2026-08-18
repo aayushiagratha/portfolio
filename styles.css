@@ -1258,7 +1258,7 @@ CURRENTLY — quiet interstitial between hero and systems
 ---------------------------------------------------------- */
 .currently {
   padding: var(--space-xl) var(--space-xl);
-  border-bottom: 1px solid var(--stone-100);
+  background: var(--ink); /* continues the hero's dark band, doesn't sit below it */
 }
 
 .currently-inner {
@@ -1275,14 +1275,14 @@ CURRENTLY — quiet interstitial between hero and systems
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--ink-muted);
+  color: var(--stone-400); /* matches .hero-eyebrow / .research-label on the same dark background */
   flex-shrink: 0;
 }
 
 .currently-text {
   font-size: 14px;
   font-weight: 300;
-  color: var(--ink-soft);
+  color: var(--stone-200); /* matches .hero-subline / .research-meta on the same dark background */
 }
 
 /* ----------------------------------------------------------
