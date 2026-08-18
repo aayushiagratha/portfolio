@@ -126,11 +126,18 @@ NAV
      margin: 0 auto;
      padding: 0 var(--space-xl);
      height: 64px;
-     display: flex;
+     display: grid;
+     grid-template-columns: auto 1fr auto auto;
      align-items: center;
-     justify-content: space-between;
      gap: var(--space-xl);
 }
+
+/* explicit placement so each piece stays pinned to its corner
+   regardless of which siblings are hidden (e.g. .nav-links on mobile) */
+.nav-name { grid-column: 1; }
+.nav-links { grid-column: 2; }
+.nav-link--cta { grid-column: 3; }
+.nav-menu-btn { grid-column: 4; }
 
 .nav-name {
      font-family: var(--font-serif);
@@ -150,6 +157,7 @@ NAV
 .nav-links {
      display: flex;
      align-items: center;
+     justify-content: center;
      gap: var(--space-xl);
 }
 
@@ -1061,6 +1069,7 @@ RESPONSIVE
 ---------------------------------------------------------- */
 @media (max-width: 900px) {
      .nav-links { display: none; }
+     .nav-link--cta { display: none; }
      .nav-menu-btn { display: flex; }
      .nav-inner { padding: 0 var(--space-l); }
 
