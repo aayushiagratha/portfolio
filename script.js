@@ -179,10 +179,10 @@ const notesMount = document.getElementById('notesPreview');
 
 if (notesMount && typeof NOTES !== 'undefined') {
   notesMount.innerHTML = NOTES.map(n => `
-    <div class="note-row">
+    <a class="note-row" href="notes/${n.slug}/">
       <span class="note-title">${n.title}</span>
       <span class="note-tag">${n.tag}</span>
-    </div>
+    </a>
   `).join('');
 }
 

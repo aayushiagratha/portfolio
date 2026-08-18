@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub stars aren't a quality signal — Aayushi Agratha</title>
+  <meta name="description" content="I kept running into the same list: “Best AI marketing skills,” ranked by GitHub stars.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="../../index.html#notes" class="nav-name">Aayushi Agratha</a>
+      <nav class="nav-links">
+        <a href="../../index.html#systems" class="nav-link">Systems</a>
+        <a href="../../index.html#research" class="nav-link">Research</a>
+        <a href="../../notes/" class="nav-link">Notes</a>
+        <a href="../../index.html#experience" class="nav-link">Experience</a>
+        <a href="../../index.html#about" class="nav-link">About</a>
+        <a href="https://ask-my-cv-woad.vercel.app" target="_blank" rel="noopener" class="nav-link nav-link--utility">Ask my CV ↗</a>
+        <a href="../../index.html#contact" class="nav-link nav-link--cta">Get in touch →</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="notes-app">
+    <div class="notes-sidebar">
+      <div class="notes-sidebar-label">Folders</div>
+      <div class="notes-sidebar-folder">All Notes <span class="notes-sidebar-count">3</span></div>
+      <p class="notes-sidebar-note">No categories yet — three notes doesn’t need filtering.</p>
+    </div>
+
+    <div class="notes-list-pane">
+      <div class="notes-list-header">
+        <div class="notes-list-title">All Notes</div>
+        <div class="notes-list-count">3 notes</div>
+      </div>
+      <a href="../../notes/the-word-in-the-title-predicted-more-than-the-job-did/" class="notes-item">
+        <div class="notes-item-title">The word in the title predicted more than the job did</div>
+        <div class="notes-item-preview">Most job listings answer the wrong question first. They tell...</div>
+        <span class="notes-item-tag">Systems</span>
+      </a>
+      <a href="../../notes/ai-adoption-isnt-an-ai-problem/" class="notes-item">
+        <div class="notes-item-title">AI adoption isn't an AI problem</div>
+        <div class="notes-item-preview">I went into 15 interviews with UK B2B marketers expecting to...</div>
+        <span class="notes-item-tag">Research</span>
+      </a>
+      <a href="../../notes/github-stars-arent-a-quality-signal/" class="notes-item active">
+        <div class="notes-item-title">GitHub stars aren't a quality signal</div>
+        <div class="notes-item-preview">I kept running into the same list: “Best AI marketing skills...</div>
+        <span class="notes-item-tag">Evaluation</span>
+      </a>
+    </div>
+
+    <div class="notes-reading-pane">
+      <div class="notes-reading-inner">
+        <div class="notes-reading-tag">Evaluation</div>
+        <h1 class="notes-reading-title">GitHub stars aren't a quality signal</h1>
+        <div class="notes-reading-meta">2 min read</div>
+        <div class="notes-reading-body">
+          <p>I kept running into the same list: “Best AI marketing skills,” ranked by GitHub stars.</p>
+          <p>Stars are honest about one thing: how many people found a repo interesting enough to bookmark. They’re silent about the thing that actually matters here — whether the output holds up.</p>
+          <p>There wasn’t a consistent way to answer that question, so I stopped looking for a better list and built a way to evaluate the work itself.</p>
+          <p>It’s called the Marketing Skills Standard.</p>
+          <p>The idea is fairly simple: six dimensions, a fixed rubric, and one rule that makes the evaluations reproducible. Every deduction needs a quoted line from the actual output.</p>
+          <p>Not “this feels generic.” The sentence that made it generic.</p>
+          <p>The harder problem appeared after a few evaluations had been scored. How do you know the score is actually supported by the evaluation, rather than just being a number typed into a field?</p>
+          <p>So the system checks itself.</p>
+          <p>Before an evaluation is published, a CI check recalculates the overall score from its six dimension scores and verifies that the numbers agree.</p>
+          <p>It already caught a real arithmetic slip in one of my own evaluations.</p>
+          <p>That’s the part I’m most pleased with — not the rubric, but the check that catches the rubric being wrong.</p>
+          <p>Stars aren’t a bad idea. They’re just easy to collect and only loosely related to what I actually care about.</p>
+          <p>The more systems I build, the more I notice that same problem: a convenient metric can quietly become a substitute for the thing it was supposed to measure. Popularity starts standing in for quality. Impressions can start standing in for trust.</p>
+          <p>I don’t think the answer is finding a perfect metric. It’s noticing when the measurement has become easier than the question, and being willing to build something more deliberate to get back to the thing that actually matters.</p>
+        </div>
+        <div class="notes-prevnext"><a href="../../notes/ai-adoption-isnt-an-ai-problem/" class="prev">← AI adoption isn't an AI problem</a></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
