@@ -124,55 +124,36 @@ fadeEls.forEach(el => {
 /* ----------------------------------------------------------
    6. EDUCATION · SKILLS · CERTIFICATIONS TOGGLE — merged into section 2
    ---------------------------------------------------------- */
-
-// Position Pilot expand toggle
-const ppToggle = document.getElementById('ppToggle');
-const ppDetail = document.getElementById('ppDetail');
-
-if (ppToggle && ppDetail) {
-  ppToggle.addEventListener('click', () => {
-    const isOpen = ppDetail.classList.contains('open');
-    ppDetail.classList.toggle('open');
-    ppToggle.setAttribute('aria-expanded', String(!isOpen));
-  });
-
-  ppToggle.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      ppToggle.click();
-    }
-  });
-}
+   // (Position Pilot's expand toggle lived here — removed along with the
+   // homepage accordion; the system now has its own page instead.)
 
 /* ----------------------------------------------------------
-   7. LIGHTWEIGHT SYSTEMS — rendered from data/projects.js
+   7. SECONDARY SYSTEMS — rendered from data/projects.js as cards
+      (Position Pilot is hand-authored as the flagship card,
+      directly in index.html)
    ---------------------------------------------------------- */
-const lightweightMount = document.getElementById('lightweightSystems');
+const secondaryMount = document.getElementById('secondarySystems');
 
-if (lightweightMount && typeof PROJECTS !== 'undefined') {
-  const lightweight = PROJECTS.filter(p => p.tier === 'lightweight');
+if (secondaryMount && typeof PROJECTS !== 'undefined') {
+  const secondary = PROJECTS.filter(p => p.tier === 'secondary');
 
-  lightweightMount.innerHTML = lightweight.map(p => `
-    <div class="work-item work-item--static">
-      <div class="work-row work-row--static">
-        <div class="work-meta">
-          <span class="status-badge"><span class="dot"></span>${p.status}</span>
-        </div>
-        <div class="work-title-group">
-          <h3 class="work-title">${p.name}</h3>
-          <p class="work-subtitle">${p.tagline}</p>
-        </div>
-      </div>
-      <div class="work-detail-inner work-detail-inner--static">
-        <div class="detail-block">
-          <p>${p.description}</p>
-        </div>
-        <div class="detail-note">
-          <a href="systems/${p.id}/" class="detail-link" aria-label="Explore ${p.name}">Explore →</a>
-        </div>
-      </div>
+  const card = p => `
+    <a class="sys-card sys-card--secondary" href="systems/${p.id}/">
+      <span class="status-badge${p.statusVariant === 'live' ? ' status-badge--live' : ''}"><span class="dot"></span>${p.status}</span>
+      <div class="sys-name">${p.name}</div>
+      <p class="sys-tag">${p.tagline}</p>
+      <span class="sys-explore">Explore →</span>
+    </a>
+  `;
+
+  const [first, second, third] = secondary;
+  secondaryMount.innerHTML = `
+    <div class="sys-row">
+      ${card(first)}
+      ${card(second)}
     </div>
-  `).join('');
+    ${third ? card(third) : ''}
+  `;
 }
 
 /* ----------------------------------------------------------

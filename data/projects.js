@@ -1,13 +1,14 @@
 /* ============================================================
    PROJECTS DATA — single source of truth for teaser-level copy.
-   Position Pilot and Agency OS have deep hand-authored detail
-   blocks directly in index.html (too bespoke to templatise
-   usefully for just two entries) — keep their name/tagline/status
-   here in sync with those blocks by hand. Marketing Skills
-   Standard and Job Search Score are rendered from this file by
-   script.js; both now have full pages at /systems/[id]/ (see
-   build_systems.py in the scratchpad, not committed — same
-   "generated HTML is the source of truth" pattern as the notes).
+   Position Pilot is hand-authored directly in index.html as the
+   flagship card (bespoke pipeline-preview diagram, not worth
+   templatising for one entry) — keep its name/tagline/status here
+   in sync with that markup by hand. Agency OS, Marketing Skills
+   Standard, and Job Search Score are all rendered as identical
+   secondary cards from this file by script.js. All four now have
+   full pages at /systems/[id]/ (see build_systems.py in the
+   scratchpad, not committed — generated HTML is the source of
+   truth, same pattern as Notes).
    ============================================================ */
 
 const PROJECTS = [
@@ -26,26 +27,22 @@ const PROJECTS = [
     tagline: "An AI workflow system I decided not to ship.",
     status: "Archived",
     statusVariant: "default",
-    tier: "full"
+    tier: "secondary"
   },
   {
     id: "marketing-skills-standard",
     name: "Marketing Skills Standard",
     tagline: "An evaluation protocol for AI marketing tools.",
-    description: "Every “best AI marketing skills” list ranks by GitHub stars — which measures popularity, not whether the output is any good. A fixed, versioned rubric scores real outputs with quoted evidence for every deduction, so a comparison is reproducible instead of a vibe. A CI check re-derives every published score from its own evidence to catch drift before it ships.",
     status: "V1 · Validating",
     statusVariant: "default",
-    url: "https://github.com/aayushiagratha/marketing-skills-hub",
-    tier: "lightweight"
+    tier: "secondary"
   },
   {
     id: "job-search-score",
     name: "Job Search Score",
     tagline: "A sponsorship-aware job search agent — built to solve my own problem.",
-    description: "Most job boards can't tell you whether a company can legally sponsor a visa or how contested a role really is. This checks both, then scores the role against my actual CV before I spend an evening writing a cover letter for a role I was never eligible for.",
     status: "Open Source",
     statusVariant: "default",
-    url: "https://github.com/aayushiagratha/job-search-score",
-    tier: "lightweight"
+    tier: "secondary"
   }
 ];

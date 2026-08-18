@@ -566,17 +566,6 @@ overflow:hidden on detail itself clips the child as grid row shrinks.
 
 .detail-link:hover { color: var(--accent); }
 
-.work-item--static { cursor: default; }
-.work-row--static { cursor: default; grid-template-columns: 140px 1fr 0; padding-bottom: var(--space-m); }
-.work-row--static:hover { opacity: 1; }
-.work-detail-inner--static { display: flex; flex-direction: column; gap: var(--space-m); padding-left: 140px; padding-bottom: var(--space-l); }
-.work-detail-inner--static p { font-size: 14px; color: var(--ink-soft); line-height: 1.65; max-width: var(--col-w); }
-
-@media (max-width: 900px) {
-  .work-row--static { grid-template-columns: 1fr; }
-  .work-detail-inner--static { padding-left: 0; }
-}
-
 .detail-note-inline {
      font-size: 13px;
      color: var(--ink-muted);
@@ -1549,6 +1538,54 @@ few small additions: code links, a results table, related-note line.
 @media (max-width: 900px) {
   .results-row { grid-template-columns: 1fr; gap: 4px; }
   .results-score { text-align: left; }
+}
+
+/* ----------------------------------------------------------
+SYSTEMS CARDS — replaces the accordion pattern on the homepage.
+Teaser only; full depth lives on each system's own page now.
+Hierarchy via card size, not inline density.
+---------------------------------------------------------- */
+.systems-grid { display: flex; flex-direction: column; gap: var(--space-l); }
+
+.sys-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--stone-200);
+  border-radius: var(--radius-m);
+  background: var(--white);
+  padding: var(--space-xl);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.sys-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px -12px rgba(40,32,24,0.18);
+}
+
+.sys-card--flagship { padding: var(--space-2xl); gap: var(--space-m); }
+.sys-flagship-top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-m); flex-wrap: wrap; }
+.sys-flagship-name { font-family: var(--font-serif); font-size: 32px; letter-spacing: -0.01em; color: var(--ink); }
+.sys-flagship-tag { font-size: 17px; font-weight: 300; color: var(--ink-soft); margin-top: var(--space-xs); }
+.sys-flagship-meta { font-size: 13px; color: var(--ink-muted); margin: var(--space-m) 0 var(--space-l); }
+
+.sys-pipeline { display: flex; flex-direction: column; gap: 5px; margin: var(--space-l) 0; padding-left: 2px; }
+.pipeline-input { font-size: 13px; color: var(--ink-soft); }
+.pipeline-arrow { font-size: 12px; color: var(--stone-400); line-height: 1; }
+.pipeline-outputs { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+.sys-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); }
+
+.sys-card--secondary { gap: var(--space-s); }
+.sys-name { font-family: var(--font-serif); font-size: 22px; letter-spacing: -0.01em; color: var(--ink); }
+.sys-tag { font-size: 14px; font-weight: 300; color: var(--ink-soft); }
+
+.sys-explore { margin-top: auto; padding-top: var(--space-m); font-size: 13px; font-weight: 500; color: var(--ink); transition: color 0.15s var(--ease); }
+.sys-card:hover .sys-explore { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .sys-card--flagship { padding: var(--space-l); }
+  .sys-flagship-name { font-size: 26px; }
+  .sys-row { grid-template-columns: 1fr; }
 }
 
 
