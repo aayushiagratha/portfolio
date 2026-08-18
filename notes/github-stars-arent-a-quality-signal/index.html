@@ -71,39 +71,62 @@
   </div>
 
   <main id="main-content" class="notes-app">
+    <div class="notes-chrome">
+      <span class="notes-dot notes-dot--1"></span>
+      <span class="notes-dot notes-dot--2"></span>
+      <span class="notes-dot notes-dot--3"></span>
+      <button class="notes-sidebar-toggle" type="button" aria-label="Toggle sidebar"><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0.6" y="0.6" width="13.8" height="11.8" rx="2" stroke="currentColor" stroke-width="1.1"/><line x1="5.4" y1="0.6" x2="5.4" y2="12.4" stroke="currentColor" stroke-width="1.1"/></svg></button>
+    </div>
+
     <div class="notes-sidebar">
       <div class="notes-sidebar-label">Folders</div>
-      <div class="notes-sidebar-folder">All Notes <span class="notes-sidebar-count">3</span></div>
-      <p class="notes-sidebar-note">No categories yet — three notes doesn’t need filtering.</p>
+      <a href="../../notes/" class="notes-sidebar-folder notes-sidebar-folder--active"><svg width="15" height="12" viewBox="0 0 16 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.895 0.895 0 2 0H5.5L7 1.8H14C15.105 1.8 16 2.695 16 3.8V11C16 12.105 15.105 13 14 13H2C0.895 13 0 12.105 0 11V2Z"/></svg><span>All Notes</span><span class="notes-sidebar-count">3</span></a>
+      <div class="notes-sidebar-folder"><svg width="15" height="12" viewBox="0 0 16 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.895 0.895 0 2 0H5.5L7 1.8H14C15.105 1.8 16 2.695 16 3.8V11C16 12.105 15.105 13 14 13H2C0.895 13 0 12.105 0 11V2Z"/></svg><span>Notes</span><span class="notes-sidebar-count">0</span></div>
+      <div class="notes-sidebar-folder"><svg width="15" height="12" viewBox="0 0 16 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.895 0.895 0 2 0H5.5L7 1.8H14C15.105 1.8 16 2.695 16 3.8V11C16 12.105 15.105 13 14 13H2C0.895 13 0 12.105 0 11V2Z"/></svg><span>Thoughts</span><span class="notes-sidebar-count">3</span></div>
     </div>
 
     <div class="notes-list-pane">
       <div class="notes-list-header">
-        <div class="notes-list-title">All Notes</div>
-        <div class="notes-list-count">3 notes</div>
+        <div>
+          <div class="notes-list-title">All Notes</div>
+          <div class="notes-list-count">3 notes</div>
+        </div>
+        <button class="notes-more-btn" type="button" aria-label="More"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="9" cy="9" r="7.4" stroke="currentColor" stroke-width="1.2"/><circle cx="5.7" cy="9" r="1.1" fill="currentColor"/><circle cx="9" cy="9" r="1.1" fill="currentColor"/><circle cx="12.3" cy="9" r="1.1" fill="currentColor"/></svg></button>
       </div>
       <a href="../../notes/the-word-in-the-title-predicted-more-than-the-job-did/" class="notes-item">
         <div class="notes-item-title">The word in the title predicted more than the job did</div>
         <div class="notes-item-preview">Most job listings answer the wrong question first. They tell...</div>
-        <span class="notes-item-tag">Systems</span>
+        <span class="notes-item-folder"><svg width="12" height="10" viewBox="0 0 16 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.895 0.895 0 2 0H5.5L7 1.8H14C15.105 1.8 16 2.695 16 3.8V11C16 12.105 15.105 13 14 13H2C0.895 13 0 12.105 0 11V2Z"/></svg>Thoughts</span>
       </a>
       <a href="../../notes/ai-adoption-isnt-an-ai-problem/" class="notes-item">
         <div class="notes-item-title">AI adoption isn't an AI problem</div>
         <div class="notes-item-preview">I went into 15 interviews with UK B2B marketers expecting to...</div>
-        <span class="notes-item-tag">Research</span>
+        <span class="notes-item-folder"><svg width="12" height="10" viewBox="0 0 16 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.895 0.895 0 2 0H5.5L7 1.8H14C15.105 1.8 16 2.695 16 3.8V11C16 12.105 15.105 13 14 13H2C0.895 13 0 12.105 0 11V2Z"/></svg>Thoughts</span>
       </a>
       <a href="../../notes/github-stars-arent-a-quality-signal/" class="notes-item active">
         <div class="notes-item-title">GitHub stars aren't a quality signal</div>
         <div class="notes-item-preview">I kept running into the same list: “Best AI marketing skills...</div>
-        <span class="notes-item-tag">Evaluation</span>
+        <span class="notes-item-folder"><svg width="12" height="10" viewBox="0 0 16 13" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 2C0 0.895 0.895 0 2 0H5.5L7 1.8H14C15.105 1.8 16 2.695 16 3.8V11C16 12.105 15.105 13 14 13H2C0.895 13 0 12.105 0 11V2Z"/></svg>Thoughts</span>
       </a>
     </div>
 
     <div class="notes-reading-pane">
+      <div class="notes-reading-toolbar">
+        <div class="notes-toolbar-group">
+          <button class="notes-toolbar-btn notes-toolbar-btn--text" type="button">Aa</button>
+          <button class="notes-toolbar-btn" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="2" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M2 4l0.8 0.8L4 3.2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/><line x1="7" y1="4" x2="15" y2="4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><rect x="1" y="10" width="4" height="4" rx="1" stroke="currentColor" stroke-width="1.3"/><line x1="7" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></button>
+          <button class="notes-toolbar-btn" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1.5" y="1.5" width="13" height="13" rx="1.5" stroke="currentColor" stroke-width="1.3"/><line x1="1.5" y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.3"/><line x1="8" y1="1.5" x2="8" y2="14.5" stroke="currentColor" stroke-width="1.3"/></svg></button>
+          <button class="notes-toolbar-btn" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 3.5L4.8 9.2a2.5 2.5 0 0 0 3.54 3.54l6-6a4 4 0 0 0-5.66-5.66l-6.2 6.2a5.5 5.5 0 0 0 7.78 7.78l5.5-5.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+        <div class="notes-toolbar-group">
+          <button class="notes-toolbar-btn" type="button"><svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3.5 2.5v9l8-4.5-8-4.5z"/></svg></button>
+          <button class="notes-toolbar-btn" type="button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1.5v8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><path d="M5 4.5L8 1.5l3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 8v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="notes-toolbar-search"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.3"/><line x1="9.3" y1="9.3" x2="13" y2="13" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg><span>Search</span></div>
+        </div>
+      </div>
       <div class="notes-reading-inner">
-        <div class="notes-reading-tag">Evaluation</div>
-        <h1 class="notes-reading-title">GitHub stars aren't a quality signal</h1>
         <div class="notes-reading-meta">2 min read</div>
+        <h1 class="notes-reading-title">GitHub stars aren't a quality signal</h1>
         <div class="notes-reading-body">
           <p>I kept running into the same list: “Best AI marketing skills,” ranked by GitHub stars.</p>
           <p>Stars are honest about one thing: how many people found a repo interesting enough to bookmark. They’re silent about the thing that actually matters here — whether the output holds up.</p>
@@ -125,7 +148,7 @@
           <a href="../../systems/marketing-skills-standard/">Marketing Skills Standard →</a>
         </div>
 
-        <div class="notes-prevnext"><a href="../../notes/ai-adoption-isnt-an-ai-problem/" class="prev">← AI adoption isn't an AI problem</a></div>
+      <div class="notes-prevnext"><a href="../../notes/ai-adoption-isnt-an-ai-problem/" class="prev">← AI adoption isn't an AI problem</a></div>
       </div>
     </div>
   </main>
