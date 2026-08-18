@@ -1588,7 +1588,7 @@ that rhythm instead.
   align-items: center;
   gap: var(--space-s);
   padding: var(--space-m) var(--space-l);
-  background: var(--stone-50);
+  background: var(--white);
   border-bottom: 1px solid var(--stone-100);
 }
 
@@ -1612,7 +1612,7 @@ that rhythm instead.
 
 .notes-sidebar {
   grid-area: sidebar;
-  background: var(--stone-50);
+  background: var(--white);
   border-right: 1px solid var(--stone-100);
   padding: var(--space-l) var(--space-m);
 }
@@ -1627,6 +1627,13 @@ that rhythm instead.
 }
 
 .notes-sidebar-folder {
+  appearance: none;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1639,7 +1646,7 @@ that rhythm instead.
 }
 
 .notes-sidebar-folder svg { flex-shrink: 0; color: var(--stone-400); transition: color 0.15s var(--ease); }
-a.notes-sidebar-folder:hover { background: var(--stone-100); }
+.notes-sidebar-folder:not(.notes-sidebar-folder--active):hover { background: var(--stone-100); }
 
 .notes-sidebar-folder span:first-of-type { flex: 1; }
 
@@ -1690,6 +1697,14 @@ a.notes-sidebar-folder:hover { background: var(--stone-100); }
   color: var(--ink);
 }
 
+.notes-list-empty {
+  display: none;
+  padding: var(--space-2xl) var(--space-l);
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
 .notes-item {
   display: block;
   margin: 2px var(--space-s);
@@ -1728,7 +1743,7 @@ a.notes-sidebar-folder:hover { background: var(--stone-100); }
 }
 .notes-item-folder svg { color: var(--stone-400); }
 
-.notes-reading-pane { grid-area: reading; background: var(--off-white); display: flex; flex-direction: column; }
+.notes-reading-pane { grid-area: reading; background: var(--white); display: flex; flex-direction: column; }
 
 .notes-reading-toolbar {
   display: flex;

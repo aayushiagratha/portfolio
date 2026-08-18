@@ -234,4 +234,39 @@ if (navDropdownNotes && typeof NOTES !== 'undefined') {
     .join('');
 }
 
+/* ----------------------------------------------------------
+   11. NOTES APP — sidebar folder filtering. Client-side only:
+      the folder a note lives in is read straight off each
+      .notes-item's data-folder attribute.
+   ---------------------------------------------------------- */
+const notesApp = document.querySelector('.notes-app');
+
+if (notesApp) {
+  const folderBtns = notesApp.querySelectorAll('.notes-sidebar-folder');
+  const items = notesApp.querySelectorAll('.notes-item');
+  const listTitle = notesApp.querySelector('.notes-list-title');
+  const listCount = notesApp.querySelector('.notes-list-count');
+  const monthHeader = notesApp.querySelector('.notes-list-month');
+  const emptyState = notesApp.querySelector('.notes-list-empty');
+
+  folderBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const folder = btn.dataset.folder;
+      folderBtns.forEach(b => b.classList.toggle('notes-sidebar-folder--active', b === btn));
+
+      let visible = 0;
+      items.forEach(item => {
+        const match = folder === 'all' || item.dataset.folder === folder;
+        item.style.display = match ? '' : 'none';
+        if (match) visible += 1;
+      });
+
+      if (listTitle) listTitle.textContent = folder === 'all' ? 'All Notes' : folder;
+      if (listCount) listCount.textContent = `${visible} note${visible === 1 ? '' : 's'}`;
+      if (monthHeader) monthHeader.style.display = visible > 0 ? '' : 'none';
+      if (emptyState) emptyState.style.display = visible === 0 ? 'block' : 'none';
+    });
+  });
+}
+
 
