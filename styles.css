@@ -1008,6 +1008,54 @@ CERTIFICATIONS TOGGLE
 .cert-name { color: var(--ink-soft); }
 
 /* ----------------------------------------------------------
+TOOLS PYRAMID — real tools only (About > Skills), tapering
+4-3-2-1 to a point. Icons are self-hosted, currentColor SVGs
+(Simple Icons, CC0 + the official NVivo mark, stripped to a
+monochrome line) — no runtime CDN dependency.
+---------------------------------------------------------- */
+.tools-pyramid {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: var(--space-m);
+     margin-top: var(--space-s);
+     padding-top: var(--space-s);
+}
+
+.tool-row {
+     display: flex;
+     justify-content: center;
+     gap: var(--space-l);
+}
+
+.tool-item {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 6px;
+     color: var(--ink-muted);
+     transition: color 0.15s var(--ease);
+}
+
+.tool-item:hover { color: var(--accent); }
+
+.tool-item svg { width: 22px; height: 22px; }
+
+.tool-item em {
+     font-style: normal;
+     font-size: 10px;
+     font-weight: 500;
+     letter-spacing: 0.02em;
+     white-space: nowrap;
+     color: inherit;
+}
+
+@media (max-width: 600px) {
+  .tool-row { gap: var(--space-m); flex-wrap: wrap; }
+  .tool-item em { display: none; }
+}
+
+/* ----------------------------------------------------------
 CONTACT
 ---------------------------------------------------------- */
 .contact-block {
