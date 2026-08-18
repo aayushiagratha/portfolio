@@ -1678,7 +1678,7 @@ Hierarchy via card size, not inline density.
   box-shadow: 0 8px 24px -12px rgba(40,32,24,0.18);
 }
 
-.sys-card--flagship { padding: var(--space-2xl); gap: var(--space-m); }
+.sys-card--flagship { padding: var(--space-2xl); gap: var(--space-m); background: var(--off-white); }
 .sys-flagship-top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-m); flex-wrap: wrap; }
 .sys-flagship-name { font-family: var(--font-serif); font-size: 32px; letter-spacing: -0.01em; color: var(--ink); }
 .sys-flagship-tag { font-size: 17px; font-weight: 300; color: var(--ink-soft); margin-top: var(--space-xs); }
