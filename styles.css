@@ -163,6 +163,57 @@ NAV
 
 .nav-link:hover { color: var(--ink); }
 
+.nav-item {
+     position: relative;
+     display: flex;
+     align-items: center;
+}
+
+.nav-item.has-dropdown > .nav-link::after {
+     content: "⌄";
+     display: inline-block;
+     margin-left: 4px;
+     color: var(--stone-400);
+     font-size: 12px;
+}
+
+.nav-dropdown {
+     position: absolute;
+     top: 100%;
+     left: 50%;
+     transform: translate(-50%, 4px);
+     width: 260px;
+     background: var(--white);
+     border: 1px solid var(--stone-200);
+     border-radius: var(--radius-m);
+     box-shadow: 0 12px 32px -12px rgba(40,32,24,0.2);
+     padding: 6px;
+     display: flex;
+     flex-direction: column;
+     gap: 1px;
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity 0.15s var(--ease), transform 0.15s var(--ease);
+}
+
+.nav-item:hover .nav-dropdown,
+.nav-item:focus-within .nav-dropdown {
+     opacity: 1;
+     visibility: visible;
+     transform: translate(-50%, 0);
+}
+
+.nav-dropdown a {
+     padding: 8px 10px;
+     border-radius: 6px;
+     font-size: 13px;
+     line-height: 1.4;
+     color: var(--ink-soft);
+     transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.nav-dropdown a:hover { background: var(--stone-50); color: var(--ink); }
+
 .nav-link--cta {
      color: var(--ink);
      font-weight: 500;

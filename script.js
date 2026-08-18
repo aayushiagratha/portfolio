@@ -2,6 +2,14 @@
    SCRIPT.JS — AAYUSHI AGRATHA PORTFOLIO
    ============================================================ */
 
+/* Root-relative prefix to the site root, derived from this
+   script's own tag src, so the same code works whether the page
+   is index.html, systems/[id]/, or notes/[slug]/. */
+const scriptRoot = (document.currentScript
+  ? document.currentScript.getAttribute('src')
+  : 'script.js'
+).replace(/script\.js$/, '');
+
 /* ----------------------------------------------------------
    1. EXPANDABLE WORK ITEMS
    ---------------------------------------------------------- */
@@ -202,6 +210,28 @@ if (askCvModal) {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && askCvModal.classList.contains('open')) closeModal();
   });
+}
+
+/* ----------------------------------------------------------
+   10. NAV DROPDOWNS — Systems / Notes quick-links, populated
+      from the same data/projects.js + data/notes.js used by the
+      homepage preview sections, so there's one source of truth.
+      Research/Experience/About aren't collections, so they stay
+      plain links.
+   ---------------------------------------------------------- */
+const navDropdownSystems = document.querySelector('[data-nav-dropdown="systems"]');
+const navDropdownNotes = document.querySelector('[data-nav-dropdown="notes"]');
+
+if (navDropdownSystems && typeof PROJECTS !== 'undefined') {
+  navDropdownSystems.innerHTML = PROJECTS
+    .map(p => `<a href="${scriptRoot}systems/${p.id}/">${p.name}</a>`)
+    .join('');
+}
+
+if (navDropdownNotes && typeof NOTES !== 'undefined') {
+  navDropdownNotes.innerHTML = NOTES
+    .map(n => `<a href="${scriptRoot}notes/${n.slug}/">${n.title}</a>`)
+    .join('');
 }
 
 
