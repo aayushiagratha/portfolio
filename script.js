@@ -235,9 +235,10 @@ if (navDropdownNotes && typeof NOTES !== 'undefined') {
 }
 
 /* ----------------------------------------------------------
-   11. NOTES APP — sidebar folder filtering. Client-side only:
-      the folder a note lives in is read straight off each
-      .notes-item's data-folder attribute.
+   11. NOTES APP — sidebar folder filtering + search. Client-side
+      only: the folder a note lives in is read straight off each
+      .notes-item's data-folder attribute, and search matches
+      against the title/preview text already in the DOM.
    ---------------------------------------------------------- */
 const notesApp = document.querySelector('.notes-app');
 
@@ -248,25 +249,39 @@ if (notesApp) {
   const listCount = notesApp.querySelector('.notes-list-count');
   const monthHeader = notesApp.querySelector('.notes-list-month');
   const emptyState = notesApp.querySelector('.notes-list-empty');
+  const searchInput = notesApp.querySelector('.notes-search-input');
+
+  let currentFolder = 'all';
+
+  function applyFilter() {
+    const query = (searchInput?.value ?? '').trim().toLowerCase();
+    let visible = 0;
+
+    items.forEach(item => {
+      const inFolder = currentFolder === 'all' || item.dataset.folder === currentFolder;
+      const text = item.querySelector('.notes-item-title').textContent.toLowerCase()
+        + ' ' + item.querySelector('.notes-item-preview').textContent.toLowerCase();
+      const matchesQuery = !query || text.includes(query);
+      const match = inFolder && matchesQuery;
+      item.style.display = match ? '' : 'none';
+      if (match) visible += 1;
+    });
+
+    if (listTitle) listTitle.textContent = currentFolder === 'all' ? 'All Notes' : currentFolder;
+    if (listCount) listCount.textContent = `${visible} note${visible === 1 ? '' : 's'}`;
+    if (monthHeader) monthHeader.style.display = visible > 0 ? '' : 'none';
+    if (emptyState) emptyState.style.display = visible === 0 ? 'block' : 'none';
+  }
 
   folderBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const folder = btn.dataset.folder;
+      currentFolder = btn.dataset.folder;
       folderBtns.forEach(b => b.classList.toggle('notes-sidebar-folder--active', b === btn));
-
-      let visible = 0;
-      items.forEach(item => {
-        const match = folder === 'all' || item.dataset.folder === folder;
-        item.style.display = match ? '' : 'none';
-        if (match) visible += 1;
-      });
-
-      if (listTitle) listTitle.textContent = folder === 'all' ? 'All Notes' : folder;
-      if (listCount) listCount.textContent = `${visible} note${visible === 1 ? '' : 's'}`;
-      if (monthHeader) monthHeader.style.display = visible > 0 ? '' : 'none';
-      if (emptyState) emptyState.style.display = visible === 0 ? 'block' : 'none';
+      applyFilter();
     });
   });
+
+  if (searchInput) searchInput.addEventListener('input', applyFilter);
 
   /* Play button reads the open note aloud with the browser's own
      text-to-speech — no audio files to generate or host. */

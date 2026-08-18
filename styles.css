@@ -1584,7 +1584,7 @@ that rhythm instead.
   overflow: hidden;
   border: 1px solid var(--stone-100);
   box-shadow: 0 24px 64px -24px rgba(40, 32, 24, 0.28);
-  background: var(--white);
+  background: var(--off-white); /* sits behind the floating sidebar card too, not just the list pane */
   font-family: var(--font-sans);
 }
 
@@ -1800,7 +1800,22 @@ that rhythm instead.
   font-size: 13px;
 }
 
-.notes-reading-inner { max-width: 560px; margin: 0 auto; padding: var(--space-2xl) var(--space-l); width: 100%; box-sizing: border-box; flex: 1; overflow-y: auto; }
+.notes-toolbar-search svg { flex-shrink: 0; }
+
+.notes-search-input {
+  appearance: none;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  width: 90px;
+  transition: width 0.2s var(--ease);
+}
+.notes-search-input:focus { outline: none; width: 140px; }
+.notes-search-input::placeholder { color: var(--ink-muted); }
+
+.notes-reading-inner { max-width: 720px; margin: 0 auto; padding: var(--space-xl) var(--space-2xl); width: 100%; box-sizing: border-box; flex: 1; overflow-y: auto; }
 
 .notes-reading-meta {
   font-size: 12px;
