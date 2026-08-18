@@ -1588,4 +1588,44 @@ Hierarchy via card size, not inline density.
   .sys-row { grid-template-columns: 1fr; }
 }
 
+/* ----------------------------------------------------------
+RESEARCH BAND — full-bleed dark teaser on the homepage. Safe now
+that the SVG diagram (hardcoded light-theme colors) lives on its
+own white page instead of here.
+---------------------------------------------------------- */
+.research-band { background: var(--ink); color: var(--stone-50); }
+.research-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--space-3xl) var(--space-xl);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+.research-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--stone-400); /* static label, not interaction — accent stays scarce */
+}
+.research-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.4;
+  color: var(--off-white);
+  max-width: var(--col-w);
+  margin-bottom: var(--space-l);
+  text-wrap: balance;
+}
+.research-meta { font-size: 13px; color: var(--stone-200); margin-bottom: var(--space-l); }
+.research-band .detail-link { color: var(--white); }
+.research-band .detail-link:hover { color: var(--stone-200); }
+
+@media (max-width: 900px) {
+  .research-inner { grid-template-columns: 1fr; padding: var(--space-2xl) var(--space-l); gap: var(--space-l); }
+}
+
 
