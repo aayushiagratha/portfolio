@@ -267,6 +267,25 @@ if (notesApp) {
       if (emptyState) emptyState.style.display = visible === 0 ? 'block' : 'none';
     });
   });
+
+  /* Play button reads the open note aloud with the browser's own
+     text-to-speech — no audio files to generate or host. */
+  const playBtn = notesApp.querySelector('.notes-play-btn');
+  if (playBtn && 'speechSynthesis' in window) {
+    playBtn.addEventListener('click', () => {
+      if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+        return;
+      }
+      const title = notesApp.querySelector('.notes-reading-title')?.textContent ?? '';
+      const body = notesApp.querySelector('.notes-reading-body')?.textContent ?? '';
+      const utterance = new SpeechSynthesisUtterance(`${title}. ${body}`);
+      utterance.onstart = () => playBtn.classList.add('notes-play-btn--active');
+      utterance.onend = () => playBtn.classList.remove('notes-play-btn--active');
+      utterance.onerror = () => playBtn.classList.remove('notes-play-btn--active');
+      speechSynthesis.speak(utterance);
+    });
+  }
 }
 
 
