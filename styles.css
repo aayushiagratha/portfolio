@@ -135,11 +135,17 @@ NAV
 .nav-name {
      font-family: var(--font-serif);
      font-size: 20px;
-     color: var(--ink);
+     color: var(--white);
+     background: var(--ink);
      flex-shrink: 0;
      letter-spacing: -0.01em;
      font-weight: 400;
+     padding: 9px 16px;
+     border-radius: var(--radius-m);
+     transition: opacity 0.2s var(--ease);
 }
+
+.nav-name:hover { opacity: 0.85; }
 
 .nav-links {
      display: flex;
@@ -1574,6 +1580,7 @@ Hierarchy via card size, not inline density.
 .pipeline-arrow { font-size: 12px; color: var(--stone-400); line-height: 1; }
 .pipeline-outputs { font-size: 14px; font-weight: 500; color: var(--ink); }
 
+#secondarySystems { display: flex; flex-direction: column; gap: var(--space-l); }
 .sys-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-l); }
 
 .sys-card--secondary { gap: var(--space-s); }
