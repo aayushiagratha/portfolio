@@ -1752,14 +1752,6 @@ that rhythm instead.
   margin-bottom: 5px;
 }
 .notes-item-date { color: var(--ink-muted); }
-.notes-item-folder {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  color: var(--ink-muted);
-}
-.notes-item-folder svg { color: var(--stone-400); }
 
 .notes-reading-pane { background: var(--white); display: flex; flex-direction: column; overflow: hidden; }
 
