@@ -1463,4 +1463,55 @@ reading-pane layout.
   .notes-reading-pane { padding: var(--space-l); }
 }
 
+/* ----------------------------------------------------------
+SYSTEM DETAIL PAGES — /systems/[slug]/. Reuses .pp-hero/.pp-title/
+.pp-tagline/.pp-links (already generic despite the name) plus a
+few small additions: code links, a results table, related-note line.
+---------------------------------------------------------- */
+.code-links { display: flex; flex-direction: column; max-width: var(--col-w); }
+.code-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--space-m) var(--space-s);
+  margin: 0 calc(var(--space-s) * -1);
+  border-top: 1px solid var(--stone-100);
+  transition: background 0.15s var(--ease);
+}
+.code-links .code-link:last-child { border-bottom: 1px solid var(--stone-100); }
+.code-link:hover { background: var(--stone-50); }
+.code-link-name { font-size: 15px; color: var(--ink); transition: color 0.15s var(--ease); }
+.code-link:hover .code-link-name { color: var(--accent); }
+.code-link-desc { font-size: 12px; color: var(--ink-muted); }
+
+.results-table { display: flex; flex-direction: column; max-width: var(--max-w); margin-top: var(--space-m); }
+.results-row {
+  display: grid;
+  grid-template-columns: 1fr 200px 80px;
+  gap: var(--space-l);
+  padding: var(--space-m) 0;
+  border-top: 1px solid var(--stone-100);
+  align-items: baseline;
+}
+.results-table .results-row:last-child { border-bottom: 1px solid var(--stone-100); }
+.results-skill { font-size: 14px; color: var(--ink); }
+.results-capability { font-size: 13px; color: var(--ink-muted); }
+.results-score { font-family: var(--font-serif); font-size: 20px; color: var(--ink); text-align: right; }
+
+.related-note {
+  margin-top: var(--space-xl);
+  padding: var(--space-l);
+  background: var(--stone-50);
+  border-radius: var(--radius-m);
+  border-left: 2px solid var(--accent);
+}
+.related-note-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: var(--space-xs); }
+.related-note a { font-size: 15px; color: var(--ink); }
+.related-note a:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .results-row { grid-template-columns: 1fr; gap: 4px; }
+  .results-score { text-align: left; }
+}
+
 

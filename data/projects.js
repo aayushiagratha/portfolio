@@ -4,8 +4,10 @@
    blocks directly in index.html (too bespoke to templatise
    usefully for just two entries) — keep their name/tagline/status
    here in sync with those blocks by hand. Marketing Skills
-   Standard and Job Search Score are lightweight and fully
-   rendered from this file by script.js.
+   Standard and Job Search Score are rendered from this file by
+   script.js; both now have full pages at /systems/[id]/ (see
+   build_systems.py in the scratchpad, not committed — same
+   "generated HTML is the source of truth" pattern as the notes).
    ============================================================ */
 
 const PROJECTS = [

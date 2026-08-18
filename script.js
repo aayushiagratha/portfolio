@@ -165,7 +165,7 @@ if (lightweightMount && typeof PROJECTS !== 'undefined') {
           <p>${p.description}</p>
         </div>
         <div class="detail-note">
-          <a href="${p.url}" target="_blank" class="detail-link">View on GitHub ↗</a>
+          <a href="systems/${p.id}/" class="detail-link">Explore →</a>
         </div>
       </div>
     </div>
