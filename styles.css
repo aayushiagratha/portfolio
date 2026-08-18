@@ -1640,23 +1640,24 @@ stays as a real link to the standalone app as a no-JS fallback.
   position: fixed;
   inset: 0;
   z-index: 300;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: flex-end;
   padding: var(--space-l);
+  padding-bottom: 76px; /* clears the floating pill button it sits above */
 }
 .ask-cv-modal.open { display: flex; }
 
 .ask-cv-modal-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(40, 32, 24, 0.55);
+  background: transparent;
 }
 
 .ask-cv-modal-panel {
   position: relative;
-  width: 100%;
-  max-width: 480px;
-  height: min(680px, 85vh);
+  width: 380px;
+  max-width: 100%;
+  height: min(600px, 75vh);
   background: var(--white);
   border-radius: var(--radius-m);
   box-shadow: 0 24px 64px -12px rgba(40,32,24,0.4);
