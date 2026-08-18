@@ -937,6 +937,11 @@ WRITING SECTION
 /* ----------------------------------------------------------
 ABOUT
 ---------------------------------------------------------- */
+/* About's header holds only the "Hello" label, no title, so the
+   shared .section-header 64px margin (sized for label+title pairs)
+   reads as a gap here — tighten it for this section specifically. */
+#about .section-header { margin-bottom: var(--space-m); }
+
 .about-grid {
      max-width: var(--col-w);
 }
