@@ -280,6 +280,8 @@ HERO
   padding-bottom: var(--space-2xl);
   padding-left: var(--space-xl);
   padding-right: var(--space-xl);
+  background: var(--ink);
+  color: var(--stone-50);
 }
 
 .hero-inner {
@@ -296,7 +298,7 @@ HERO
      font-weight: 500;
      letter-spacing: 0.12em;
      text-transform: uppercase;
-     color: var(--ink-muted);
+     color: var(--stone-400); /* matches .research-label on the same dark background */
      margin-bottom: var(--space-l);
 }
 
@@ -306,18 +308,18 @@ HERO
      font-weight: 400;
      line-height: 1.08;
      letter-spacing: -0.025em;
-     color: var(--ink);
+     color: var(--off-white); /* matches .research-quote on the same dark background */
      margin-bottom: var(--space-l);
 }
 
 .hero-headline em {
      font-style: italic;
-     color: var(--ink-soft);
+     color: var(--stone-200);
 }
 
 .hero-subline {
      font-size: 16px;
-     color: var(--ink-muted);
+     color: var(--stone-200); /* matches .research-meta on the same dark background */
      max-width: 440px;
      margin-bottom: var(--space-xl);
      font-weight: 300;
@@ -380,6 +382,12 @@ BUTTONS
      border-color: var(--ink);
      background: var(--stone-50);
 }
+
+/* hero sits on the same dark background as .research-band now — invert
+   the CTA pills to match, scoped so Systems/Contact pages are untouched */
+.hero .btn-primary { background: var(--off-white); color: var(--ink); }
+.hero .btn-secondary { color: var(--off-white); border-color: var(--stone-200); }
+.hero .btn-secondary:hover { border-color: var(--off-white); background: rgba(255,255,255,0.08); }
 
 /* ----------------------------------------------------------
 SECTIONS
@@ -1230,12 +1238,12 @@ HERO — text-only variant (no photo)
   align-items: center;
   gap: var(--space-m);
   font-size: 15px;
-  color: var(--ink-soft);
+  color: var(--stone-200);
   margin-bottom: var(--space-l);
   flex-wrap: wrap;
 }
 
-.hero-modes strong { font-weight: 500; color: var(--ink); }
+.hero-modes strong { font-weight: 500; color: var(--off-white); }
 .hero-modes .dot { color: var(--stone-400); }
 
 /* ----------------------------------------------------------
