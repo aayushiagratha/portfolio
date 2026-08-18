@@ -170,4 +170,38 @@ if (notesMount && typeof NOTES !== 'undefined') {
   `).join('');
 }
 
+/* ----------------------------------------------------------
+   9. ASK MY CV MODAL — every [data-ask-cv] trigger opens this
+      instead of navigating. href stays as a real fallback link
+      if JS doesn't run.
+   ---------------------------------------------------------- */
+const askCvModal = document.getElementById('askCvModal');
+
+if (askCvModal) {
+  const openTriggers = document.querySelectorAll('[data-ask-cv]');
+  const closeTriggers = askCvModal.querySelectorAll('[data-ask-cv-close]');
+  let lastFocused = null;
+
+  const openModal = (e) => {
+    e.preventDefault();
+    lastFocused = document.activeElement;
+    askCvModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    askCvModal.querySelector('.ask-cv-modal-close').focus();
+  };
+
+  const closeModal = () => {
+    askCvModal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  };
+
+  openTriggers.forEach(el => el.addEventListener('click', openModal));
+  closeTriggers.forEach(el => el.addEventListener('click', closeModal));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && askCvModal.classList.contains('open')) closeModal();
+  });
+}
+
 

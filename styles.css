@@ -217,10 +217,9 @@ MOBILE NAV
 HERO
 ---------------------------------------------------------- */
 .hero {
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 64px;
+  padding-top: calc(64px + var(--space-2xl));
   padding-bottom: var(--space-2xl);
   padding-left: var(--space-xl);
   padding-right: var(--space-xl);
@@ -1345,7 +1344,9 @@ reading-pane layout.
 .notes-app {
   display: grid;
   grid-template-columns: 200px 300px 1fr;
-  min-height: calc(100vh - 65px);
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 64px; /* clears the fixed nav — this was missing entirely before */
 }
 
 .notes-sidebar {
@@ -1566,9 +1567,9 @@ Hierarchy via card size, not inline density.
 .sys-flagship-top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-m); flex-wrap: wrap; }
 .sys-flagship-name { font-family: var(--font-serif); font-size: 32px; letter-spacing: -0.01em; color: var(--ink); }
 .sys-flagship-tag { font-size: 17px; font-weight: 300; color: var(--ink-soft); margin-top: var(--space-xs); }
-.sys-flagship-meta { font-size: 13px; color: var(--ink-muted); margin: var(--space-m) 0 var(--space-l); }
+.sys-flagship-meta { font-size: 13px; color: var(--ink-muted); }
 
-.sys-pipeline { display: flex; flex-direction: column; gap: 5px; margin: var(--space-l) 0; padding-left: 2px; }
+.sys-pipeline { display: flex; flex-direction: column; gap: 5px; padding-left: 2px; }
 .pipeline-input { font-size: 13px; color: var(--ink-soft); }
 .pipeline-arrow { font-size: 12px; color: var(--stone-400); line-height: 1; }
 .pipeline-outputs { font-size: 14px; font-weight: 500; color: var(--ink); }
@@ -1579,7 +1580,7 @@ Hierarchy via card size, not inline density.
 .sys-name { font-family: var(--font-serif); font-size: 22px; letter-spacing: -0.01em; color: var(--ink); }
 .sys-tag { font-size: 14px; font-weight: 300; color: var(--ink-soft); }
 
-.sys-explore { margin-top: auto; padding-top: var(--space-m); font-size: 13px; font-weight: 500; color: var(--ink); transition: color 0.15s var(--ease); }
+.sys-explore { font-size: 13px; font-weight: 500; color: var(--ink); transition: color 0.15s var(--ease); }
 .sys-card:hover .sys-explore { color: var(--accent); }
 
 @media (max-width: 900px) {
@@ -1626,6 +1627,69 @@ own white page instead of here.
 
 @media (max-width: 900px) {
   .research-inner { grid-template-columns: 1fr; padding: var(--space-2xl) var(--space-l); gap: var(--space-l); }
+}
+
+/* ----------------------------------------------------------
+ASK MY CV MODAL — inline chat, not a page navigation. Every
+[data-ask-cv] trigger (nav link, mobile nav link, floating
+button) opens this instead of following its href; the href
+stays as a real link to the standalone app as a no-JS fallback.
+---------------------------------------------------------- */
+.ask-cv-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-l);
+}
+.ask-cv-modal.open { display: flex; }
+
+.ask-cv-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 32, 24, 0.55);
+}
+
+.ask-cv-modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  height: min(680px, 85vh);
+  background: var(--white);
+  border-radius: var(--radius-m);
+  box-shadow: 0 24px 64px -12px rgba(40,32,24,0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.ask-cv-modal-close {
+  position: absolute;
+  top: var(--space-s);
+  right: var(--space-s);
+  z-index: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--stone-200);
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.ask-cv-modal-close:hover { border-color: var(--accent); color: var(--accent); }
+
+.ask-cv-modal-panel iframe { width: 100%; height: 100%; border: none; flex: 1; }
+
+@media (max-width: 600px) {
+  .ask-cv-modal { padding: 0; }
+  .ask-cv-modal-panel { max-width: 100%; height: 100%; border-radius: 0; }
 }
 
 
