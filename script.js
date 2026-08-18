@@ -98,7 +98,7 @@ const sectionObserver = new IntersectionObserver(entries => {
       const id = entry.target.id;
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
-        link.style.color = href === `#${id}` ? 'var(--ink)' : '';
+        link.style.color = href === `#${id}` ? 'var(--off-white)' : '';
       });
     }
   });
