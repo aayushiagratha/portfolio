@@ -1357,7 +1357,6 @@ ASK MY CV — a portfolio utility (interact with the CV right
 now), not a Systems case study. Kept visually subordinate:
 outlined pill, not the filled primary button style.
 ---------------------------------------------------------- */
-.nav-link--utility { font-style: italic; }
 
 .ask-cv-float {
   position: fixed;
