@@ -1266,4 +1266,44 @@ NOTES PREVIEW
   .currently { padding: var(--space-l); }
 }
 
+/* ----------------------------------------------------------
+ASK MY CV — a portfolio utility (interact with the CV right
+now), not a Systems case study. Kept visually subordinate:
+outlined pill, not the filled primary button style.
+---------------------------------------------------------- */
+.nav-link--utility { font-style: italic; }
+
+.ask-cv-float {
+  position: fixed;
+  bottom: var(--space-l);
+  right: var(--space-l);
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--stone-200);
+  border-radius: 100px;
+  box-shadow: 0 4px 16px -4px rgba(40,32,24,0.15);
+  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.ask-cv-float:hover { border-color: var(--accent); color: var(--accent); }
+
+.ask-cv-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .ask-cv-float { bottom: var(--space-m); right: var(--space-m); padding: 9px 16px; font-size: 12px; }
+}
+
 
